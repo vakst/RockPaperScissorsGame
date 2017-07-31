@@ -75,7 +75,6 @@ var GameResult = createReactClass({
 var CardBox = createReactClass({
     makeChoice: function() {
         var id = this.props.id;
-        //this.props.gameDoneCallback({userChoice: id, opponentChoice: "", result: ""});
 
         $.ajax({
             url: '/solve/' + id,
@@ -155,14 +154,15 @@ var GameCardsStatisticSection = createReactClass({
         }
     },
     componentWillReceiveProps: function (nextProps) {
-        //alert(this.props.id)
-        //alert(nextProps.userChoice)
         if (nextProps.userChoice == this.props.id) {
             this.state.userChoiceTimes = this.state.userChoiceTimes + 1
-            this.setState(this.state)
+        }
 
-        } else if (nextProps.opponentChoice == this.props.id) {
+        if (nextProps.opponentChoice == this.props.id) {
             this.state.opponentChoiceTimes = this.state.opponentChoiceTimes + 1
+        }
+
+        if (nextProps.userChoice == this.props.id || nextProps.opponentChoice == this.props.id) {
             this.setState(this.state)
         }
     },
