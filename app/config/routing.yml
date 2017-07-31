@@ -1,0 +1,4 @@
+game:
+    resource: "@GameBundle/Resources/config/routing.yml"
+    prefix:   /
+

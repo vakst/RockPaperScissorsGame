@@ -1,0 +1,10 @@
+services:
+    rock.paper.scissors:
+        class: GameBundle\RockPaperScissors\RockPaperScissors
+        arguments: ['@rock.paper.scissors.strategy.random', '@rock.paper.scissors.rules.basic']
+
+    rock.paper.scissors.strategy.random:
+        class: GameBundle\RockPaperScissors\Strategy\RandomStrategy
+
+    rock.paper.scissors.rules.basic:
+        class: GameBundle\RockPaperScissors\Rule\StandardRuleResolver
